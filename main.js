@@ -1,18 +1,24 @@
 // store text to manipulate
 const inputText = `
-*asdf
-*1234
+? 	This is a point
+?	Actually a differently formatted point
+	- Indented subpoint
+	- More information
+? 	Question tabbed point
 `;
 // starting text identification and replacement
-const initialInput = "*";
+const initialInputs = ["? 	", "?   ", "?	"];
 const initialOutput = "- ";
 
 const lines = inputText.split(/\n/g);
 
 lines.map(line => {
-    const newLine = line.slice(0, initialInput.length) === initialInput
-        ? line.slice(initialInput.length)
+    const initialMatch = initialInputs.filter(initial => (
+        line.slice(0, initial.length) === initial
+    ));
+    const newLine = initialMatch.length
+        ? `${initialOutput}${line.slice(initialMatch[0].length)}`
         : line
     ;
-    newLine && console.log(`${initialOutput}${newLine}`);
+    newLine && console.log(newLine);
 });
