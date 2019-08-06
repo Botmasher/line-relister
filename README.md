@@ -1,3 +1,3 @@
 # Relister
 
-Manipulate text lines, turning tabs/characters from the start of a line into other spacing or characters.
+Manipulate text lines, turning characters that start, end or space out lines/text into other spacing or characters.
